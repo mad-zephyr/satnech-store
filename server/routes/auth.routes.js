@@ -120,28 +120,23 @@ router.post('/signInWithPassword', [
 )
 
 function isTokenInvalid(data, dbToken) {
-  return !data || !dbToken || data._id !== dbToken?.user.toString()
+  return !data || !dbToken || data?._id !== dbToken?.user.toString()
 }
 
 router.post('/token', async(req, res) => {
   try {
     const { refreshToken, userId } = req.body
 
-    console.log('req.body: ', req.body)
-    
     const data = await tokenServices.validateRefresh(refreshToken)
-    console.log('data: ', data)
     const dbToken = await tokenServices.findToken(refreshToken)
-    
-    console.log('dbToken: ', dbToken)
-    
+
     if (isTokenInvalid(data, dbToken)) {
       return res.status(401).json({
         message: 'Unauthorized isTokenInvalid'
       })
     }
 
-    const tokens = tokenServices.generate({_id: userId})
+    const tokens = await tokenServices.generate({_id: userId})
     await tokenServices.save(userId, tokens.refreshToken)
   
     res.status(200).send({

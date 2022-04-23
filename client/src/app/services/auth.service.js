@@ -28,11 +28,12 @@ const authService = {
         return data
     },
     refresh: async () => {
-        const { data } = await httpAuth.post('token', {
+        const response = await httpAuth.post('token', {
             userId: localStorageService.getUserId(),
             refreshToken: localStorageService.getRefreshToken()
         })
-        return data
+        console.log('refresh: async', response)
+        return response.data
     }
 }
 
