@@ -1,1 +1,0 @@
-# satnech-store
