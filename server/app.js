@@ -19,7 +19,8 @@ if (process.env.NODE_ENV === 'production') {
 	console.log('production')
 	app.use('/', express.static(path.join(__dirname, 'client/build')))
 
-	const indexpath = path.join(__dirname, 'index.html')
+	const indexpath = path.join(__dirname, 'client/build/index.html')
+
 	app.get('*', (req, res) => {
 		res.sendFile(indexpath)
 	})
