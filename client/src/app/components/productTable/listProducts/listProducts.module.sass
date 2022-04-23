@@ -1,0 +1,88 @@
+@use '../../../global/_colors' as colors
+@use '../../../global/_fonts' as *
+
+tbody
+	tr
+		user-select: none
+
+		&:last-of-type
+			td
+				border-bottom: 0px
+
+	tr
+		background: colors.$color-white
+
+		&:hover
+			td
+				.title
+					@include fontStyle(16px, 120%, colors.$color-blue, 500)
+
+		td 
+			box-sizing: border-box
+			vertical-align: middle
+			padding: 12px 6px
+			border-bottom: 1px solid rgba(colors.$color-black, 10%)
+
+			&:nth-of-type(1)
+				width: 28px
+
+			&:nth-last-of-type(2)
+
+				label
+					transform: translateY(20%)
+
+			&:nth-of-type(2)
+				width: 36px
+				text-align: center
+
+			&:nth-last-of-type(2), &:nth-last-of-type(1)
+				text-align: center
+				padding: 12px
+
+			.text
+				display: flex
+				flex-direction: column
+
+			.title
+				@include fontStyle(16px, 120%, colors.$color-black, 500)
+				transition: 0.3s color ease
+				cursor: pointer
+
+			.category
+				@include fontStyle(14px, 120%, rgba(colors.$color-black, 50%), 400)
+
+			.cell
+				display: flex
+				align-items: center
+
+			img
+				height: 40px
+				widows: 40px
+				border-radius: 50%
+				object-fit: cover
+				border: 1px solid rgba(black, 5%)
+
+.btn__drag
+	display: flex
+	flex-wrap: wrap
+	width: 28px
+	column-gap: 4px
+	row-gap: 4px
+	padding: 0px 8px
+	text-align: center
+	cursor: grab
+
+	&:hover
+		div
+			background: rgba(grey, 80% )
+
+	div
+		width: 4px
+		height: 4px
+		border-radius: 50%
+		background: rgba(grey, 40% )
+		transition: 0.3s background ease
+
+.remove
+	svg
+		cursor: pointer

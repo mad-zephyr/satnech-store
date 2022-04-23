@@ -1,0 +1,77 @@
+@use '../../../global' as *
+
+.sideMenu
+  display: none
+  position: absolute
+  width: 100vw
+  height: 100vh
+  z-index: 300
+
+  &__open
+    display: initial
+
+.background
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  backdrop-filter: blur(4px)
+  background: rgba(0, 0, 0, 0.4)
+  z-index: -1
+
+.wrapper
+  position: relative
+  display: flex
+  width: 300px
+  height: 100%
+  background: white
+
+.btnClose
+  display: flex
+  flex-direction: column
+  position: absolute
+  width: 60px
+  height: 46px
+  justify-content: space-between
+  right: -80px
+  top: 20px
+  cursor: pointer
+
+  & > div
+    width: 100%
+    height: 5px
+    background: white
+    border-radius: 4px
+
+    &:first-of-type
+      transform-origin: top left
+      transform: rotateZ(45deg)
+      
+    &:last-of-type
+      transform-origin: bottom left
+      transform: rotateZ(-45deg)
+
+.content
+  display: flex
+  width: 100%
+  flex-direction: column
+
+  a
+    display: flex
+    align-items: center
+    text-decoration: none
+    width: 100%
+    height: 56px
+    border-bottom: 1px solid rgba($color-dark-grey, 30%)
+    padding-left: 40px
+    @include fontStyle($fontSize: 18px, $lineHeight: 100%, $color: $color-black, $font-weight: 500)
+	
+    &:first-of-type
+      border-top: 1px solid rgba($color-dark-grey, 30%)
+    
+    
+
+
+
+  

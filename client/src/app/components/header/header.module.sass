@@ -1,0 +1,152 @@
+@use '../../global/_colors' as color
+
+.header
+	position: fixed
+	top: 0
+	display: flex
+	width: 100%
+	justify-content: center
+	padding: 36px 24px
+	z-index: 400
+	background: color.$color-white
+	filter: drop-shadow(20px 0px 20px rgba(color.$color-black, 0%))
+	transition: 0.3s all ease
+
+	&__wrapper
+		display: flex
+		width: 1440px
+		column-gap: 36px
+		align-items: center
+		justify-content: space-between
+
+	&__top
+		padding: 12px 24px
+		filter: drop-shadow(0px 0px 4px rgba(color.$color-black, 20%))
+
+	&__contacts
+		display: flex
+		align-items: center
+		column-gap: 16px
+		padding: 0 16px
+		border-radius: 12px
+		height: 56px
+		background: color.$color-grey
+
+.float
+	padding: 12px 24px
+
+.fixed
+	position: fixed
+	top: 0
+	width: 100%!important
+	z-index: 200
+	background: white
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15)
+	transition: 0.5s top ease
+
+.fixed
+	position: fixed
+	top: 0
+	width: 100%!important
+	z-index: 200
+	background: white
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15)
+
+.center
+	display: flex
+	align-items: center
+	column-gap: 12px
+
+.menu
+	display: flex
+	align-items: center
+	column-gap: 8px
+	cursor: pointer 
+
+.user
+	display: flex
+	flex-grow: 1
+	justify-content: flex-end
+	column-gap: 6px
+
+.search 
+	display: flex
+	position: relative
+	height: 56px
+	align-items: center
+	border-radius: 12px
+	overflow: hidden
+
+	svg
+		position: absolute
+		right: 12px 
+		top: 50%
+		transform: translateY(-50%)
+
+	label
+		background: color.$color-grey
+		height: 100%
+
+	input
+		width: 330px
+		height: 100%
+		border: none
+		background: none
+		outline: none
+		padding: 0 16px
+
+.btn
+	display: flex
+	width: 56px
+	height: 56px
+	border-radius: 12px
+	align-items: center
+	justify-content: center
+	background: color.$color-grey
+	cursor: pointer
+
+.blue
+	background: color.$color-blue
+
+@media (max-width: 420px)
+
+	.header
+		padding: 30px 24px
+		justify-content: space-between
+
+		&__top
+			padding: 12px 24px
+			filter: drop-shadow(0px 0px 4px rgba(color.$color-black, 20%))
+			
+		&__contacts
+			display: none
+	
+	.float
+		padding: 12px 24px
+
+	.menu
+		&__title
+			display: none
+
+	.logo
+		order: 1
+
+	.center
+		order: 0
+
+	.search
+		display: none
+
+	.user
+		flex-grow: 0
+		order: 2
+
+		.btn
+			display: none
+
+	.btn
+		&:not(:first-of-type)
+			display: none
+
+			
+		

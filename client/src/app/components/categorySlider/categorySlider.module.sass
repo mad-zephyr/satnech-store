@@ -1,0 +1,23 @@
+@use '../../global/_colors' as colors
+
+.category
+  padding: 60px 0 0
+  width: 1440px
+  margin: 0 auto
+
+@media (max-width: 420px)
+  .category
+    position: relative
+    padding: 46px 0 0
+    width: auto
+
+    &::before
+      position: absolute
+      content: ''
+      display: block
+      top: 16px
+      left: 24px
+      width: 19px
+      height: 22px
+      margin: 0 0 14px 24px
+      background: url('./assets/sliderFinger.svg')

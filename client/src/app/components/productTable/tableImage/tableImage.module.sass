@@ -1,0 +1,35 @@
+@use '../../../global/_colors' as colors
+@use '../../../global/_fonts' as *
+
+.container
+	width: 100%
+
+.table
+	display: flex
+	flex-grow: 1
+	max-width: 1440px
+	min-height: 100px
+	margin: 0 auto
+	border-collapse: collapse
+	border: 1px solid #DEDEE0
+	border-radius: 12px
+	overflow: hidden
+
+	table
+		overflow: hidden
+		border-radius: 12px 12px 0 0
+		width: 100%
+		border-collapse: collapse
+		height: fit-content 
+		thead		
+			tr
+				height: 36px
+				background: colors.$color-grey
+
+				th
+					text-align: left
+					padding: 0 6px
+					border-bottom: 1px solid rgba(colors.$color-black,10%)
+					border-collapse: collapse
+					@include fontStyle(14px, 36px, #5A5761, 400)
+

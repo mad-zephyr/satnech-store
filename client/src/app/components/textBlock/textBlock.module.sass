@@ -1,0 +1,66 @@
+@use '../../global/_colors' as color
+
+.description
+  display: flex
+  width: 1440px
+  margin: 0 auto
+  padding: 70px 72px
+  column-gap: 120px
+
+  & > div
+    width: 50%
+
+  .title
+    font-size: 38px
+    line-height: 120%
+    letter-spacing: -0.03em 
+    font-style: normal
+    font-weight: normal
+    color: color.$color-black
+    margin-bottom: 36px
+
+  p, ul
+    color:  color.$color-dark-grey
+    font-size: 18px
+    line-height: 25px
+    letter-spacing: -0.03em
+    white-space: pre-wrap
+
+  ul
+    list-style: none
+
+  li
+    display: flex
+    column-gap: 12px
+    align-items: center
+    line-height: 41px
+
+    &::before
+      content: url('./assets/bulet.svg')
+  
+@media (max-width: 420px)
+
+  .description
+    flex-direction: column
+    padding: 70px 24px
+    row-gap: 60px
+    width: auto
+
+    .title
+      font-size: 30px
+
+    & > div
+      width: 100%
+
+    p, ul 
+      white-space: normal
+
+    li
+      font-size: 18px
+      line-height: 20px
+      column-gap: 20px
+      margin-bottom: 26px
+
+      &::before
+        align-self: flex-start
+        margin-top: 4px

@@ -1,0 +1,17 @@
+
+@use '../../global/_colors' as color
+@use '../../global/_fonts' as *
+
+.main
+
+.h1
+	width: 1440px
+	margin: 0 auto
+	@include fontStyle(68px, 110%, color.$color-black, 600)
+	margin-bottom: 36px
+
+@media (max-width: 420px)
+	.h1
+		@include fontStyle(24px, 110%, color.$color-black, 600)
+	
+		

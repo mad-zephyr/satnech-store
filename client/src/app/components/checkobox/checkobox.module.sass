@@ -1,0 +1,45 @@
+@use '../../global/_colors' as colors
+@use '../../global/_fonts' as *
+	
+.checkbox
+	display: flex
+	flex-direction: column
+	align-self: flex-start
+	column-gap: 6px
+	cursor: pointer
+
+	&__wrapper
+		display: flex
+		align-items: center
+		padding: 2px
+		height: 20px
+		width: 32px
+		background: colors.$color-dark-grey
+		border-radius: 12px
+
+	&__inside
+		height: 100%
+		width: 16px
+		border-radius: 50%
+		background: colors.$color-white
+		margin-left: 0px
+		transform: translateX(12px)
+		transition: 0.3s all ease
+
+	input
+		display: none
+
+
+.wrapper
+	display: flex
+	column-gap: 6px
+	margin-bottom: 4px
+
+.error
+	@include fontStyle(12px, 120%, colors.$color-alert)
+
+.checked
+	background: colors.$color-blue
+
+	& > div
+		transform: translateX(0px)

@@ -1,0 +1,58 @@
+@use '../../../global/_colors' as color
+@use '../../../global/_fonts' as * 
+
+.form
+	display: flex
+	flex-direction: column
+	padding: 24px 36px
+	row-gap: 36px
+
+.tabs
+	display: flex
+
+.section
+	display: flex
+	flex-wrap: wrap
+	width: 100%
+	row-gap: 24px
+	column-gap: 12px
+
+	&__title
+		@include fontStyle(18px, 120%, color.$color-black, 600)
+		width: 100%
+
+	&__id
+		@include fontStyle(14px, 120%, rgba(color.$color-dark-grey, 50%), 400)
+	
+	&__selection
+		display: flex
+		flex-wrap: wrap
+		width: 100%
+		row-gap: 24px
+		column-gap: 12px
+
+.dropDown
+	width: calc(50% - 8px)
+	
+	label
+		display: flex
+		flex-direction: column
+		row-gap: 8px
+		width: 100%
+
+.btn
+	display: flex
+	align-items: center
+	justify-content: center
+	cursor: pointer
+
+	&__addProduct
+		padding: 12px 48px
+		height: 48px
+		background: color.$color-blue
+		@include fontStyle(16px, 100%, color.$color-white, 400)
+		border-radius: 5px
+		transition: 0.3s all ease
+	
+		&:hover
+			background: darken(color.$color-blue, 20%)

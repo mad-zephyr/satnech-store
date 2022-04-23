@@ -1,0 +1,168 @@
+@use '../../../global/_colors' as colors
+@use '../../../global/_fonts' as *
+
+.modal
+	position: absolute
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 100vw
+	height: 100vh
+	z-index: 2
+	pointer-events: none
+
+	&__bg
+		position: absolute
+		width: 100vw
+		height: 100vh
+		backdrop-filter: blur(4px)
+		background: rgba(colors.$color-black, 40%)
+		pointer-events: none
+		opacity: 0
+		z-index: -1
+		transition: 0.3s opacity ease
+
+		&_show
+			opacity: 1
+			pointer-events: fill
+
+	&__wrapper
+		white-space: inherit
+		border-radius: 10px
+		overflow: hidden
+		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.12)
+		transform: translateY(100px)
+		opacity: 0
+		transition: 0.3s transform ease-in-out
+		animation: modalOut 0.3s 1
+
+		&_show
+			transition: 0.3s transform ease
+			animation: modalIn 0.3s 1 forwards
+
+.upload
+	width: 700px
+	background: colors.$color-white
+	border-radius: 5px 5px 0 0
+	min-height: 260px
+	padding: 16px
+
+	&__zone
+		display: flex
+		width: 100%
+		align-items: center
+		justify-content: center
+		align-self: stretch
+		height: 300px
+		flex-grow: 1
+		background: rgba(colors.$color-blue, 10%)
+		border: 1px dashed colors.$color-blue
+		border-radius: 5px
+		white-space: pre
+		@include fontStyle(16px, 120%, colors.$color-black, 400)
+		transition: 0.3s background ease
+
+		input
+			display: none
+		
+		span
+			color: colors.$color-blue
+			text-decoration: underline
+			cursor: pointer
+
+	&__file
+		display: flex
+		position: relative
+		overflow: hidden
+		align-items: center
+		justify-content: space-between
+		padding: 8px 12px
+
+		height: 40px
+
+		background: colors.$color-white
+		border: 1px solid colors.$color-blue
+		box-sizing: border-box
+		border-radius: 5px
+
+		margin: 8px 0px
+	
+	&__wrapper
+		display: flex
+		align-items: center
+
+		svg
+			transition: 0.3s fill ease
+
+			&:hover
+				cursor: pointer
+				fill: colors.$color-alert
+
+	&__size
+		@include fontStyle(16px, 120%, rgba(colors.$color-black, 50%), 400)
+		margin-right: 12px
+
+	&__progress
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		background: colors.$color-white
+		height: 3px
+
+		&_bar
+			height: 100%
+			width: 0%
+			background: green
+			transition: 0.3s width ease
+
+.dragOver
+	background: rgba(colors.$color-blue, 40%)
+	
+.control
+	width: 100%
+	display: flex
+	height: 60px
+
+	button
+		flex-grow: 1
+		@include fontStyle(16px, 120%, colors.$color-white, 500)
+		transition: 0.3s all ease
+		cursor: pointer
+		
+		&:first-of-type
+			background: colors.$color-black
+
+			&:hover
+				background: darken(colors.$color-black,10% )
+		&:last-of-type
+			background: colors.$color-blue
+
+			&:hover
+				background: darken(colors.$color-blue,10% )
+
+		
+@keyframes modalIn
+	0% 
+		opacity: 0
+		transform: translateY(100px)
+		pointer-events: none
+	
+	100% 
+		opacity: 1
+		transform: translateY(0px)
+		pointer-events: auto
+		animation-play-state: paused
+
+@keyframes modalOut
+	0% 
+		opacity: 1
+		transform: translateY(0px)
+		pointer-events: auto
+
+	100% 
+		opacity: 0
+		transform: translateY(100px)
+		pointer-events: none
+		animation-play-state: paused
+

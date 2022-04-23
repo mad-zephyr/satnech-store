@@ -1,0 +1,23 @@
+@use '../../global/_colors' as color
+@use '../../global/_fonts' as *
+
+.user
+	min-height: calc(100vh - 128px - 248px)
+	background: color.$color-grey
+	padding: 24px 0 
+
+	&__container
+		display: flex
+		margin: 0 auto
+		min-height: 400px
+		box-shadow: 40px 40px 60px rgba(0, 0, 0, 0.1)
+		background: color.$color-white
+		border-radius: 10px
+		width: calc(100% - 48px)
+		overflow: hidden
+
+	&__control
+		background: rgba(color.$color-blue , 20%)
+		width: 216px
+		height: auto
+		padding: 36px 12px 32px

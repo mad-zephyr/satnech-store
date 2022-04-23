@@ -1,0 +1,220 @@
+@use '../../../global/_colors' as color
+@use 'app/global/_fonts' as *
+
+.shopfrontCard
+	display: flex
+	flex-direction: column
+	position: relative
+	background: color.$color-white
+	border-radius: 20px
+	padding: 24px 0 16px
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1)
+	height: 100%
+	margin-bottom: 36px
+
+	a
+		text-decoration: none
+
+	img
+		margin-bottom: 18px
+		width: 100%
+		height: auto
+		object-fit: cover
+
+	&__mobile
+		display: flex
+		flex-direction: column
+		background: color.$color-white
+		padding: 24px 0 16px
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1)
+		border-radius: 20px
+		height: 100%
+
+		a
+			text-decoration: none
+
+		img
+			width: 100%
+			height: 162px
+			object-fit: cover
+
+.wrapper
+	display: flex
+	align-items: center
+	justify-content: space-between
+	width: 100%
+	padding: 0 16px
+	margin-bottom: 20px
+
+	&__actual
+		font-weight: bold
+		font-size: 20px
+		line-height: 100%
+		color: color.$color-black
+
+	&__old
+		font-size: 14px
+		line-height: 100%
+		text-align: right
+		text-decoration-line: line-through
+		color: color.$color-blue
+
+	&__brand
+		font-size: 14px
+		line-height: 100%
+		color: color.$color-dark-grey
+
+	&__number  
+		color: color.$color-dark-grey
+		font-size: 12px
+		line-height: 100%
+
+.title
+	@include fontStyle(24px, 120%, color.$color-black, 600)
+	padding: 0 16px
+	margin-bottom: 28px
+
+.control
+	display: flex
+	align-items: center
+	column-gap: 12px
+	padding: 0 16px
+	flex-grow: 1
+	align-items: flex-end
+	
+	&__buy
+		display: flex
+		column-gap: 6px
+		flex-grow: 1
+		align-items: center
+		justify-content: center
+		height: 44px
+		padding: 14px 0
+		border-radius: 10px
+		background: color.$color-blue
+		color: color.$color-white
+		font-weight: bold
+		font-size: 16px
+		line-height: 100%
+		cursor: pointer
+		&:hover
+			background: color.$color-blue
+			svg
+				fill: color.$color-white
+
+			&:active
+				background: darken(color.$color-blue, 15%)
+
+	&__like
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 44px
+		height: 44px
+		border-radius: 10px
+		border: 1px solid color.$color-light-grey
+		cursor: pointer
+
+		&:hover
+			svg
+				fill: black 
+	
+.specs
+	.row
+		display: flex
+		flex-direction: column
+		justify-content: center
+
+		&::after
+			content: ''
+			width: 100%
+			height: 1px
+			background: rgba(color.$color-black, 20%)
+
+		span
+			display: flex
+
+		&:first-of-type
+			height: 36px
+			margin-bottom: 12px
+
+			span
+				@include fontStyle(18px, 110%, color.$color-black, 600)
+				height: 100%
+				align-items: center
+		
+		&:not(:first-of-type)
+			@include fontStyle(15px, 110%, color.$color-black, 600)
+			justify-content: space-around
+			height: 36px
+
+			&::after
+				content: ''
+				width: 100%
+				height: 1px
+				background: rgba(color.$color-black, 10%)
+
+			span
+				display: flex
+				justify-content: space-between
+
+				&:first-child
+					@include fontStyle(15px, 110%, color.$color-black, 400)
+
+				&:last-child
+					@include fontStyle(15px, 110%, color.$color-black, 600)
+
+@media (max-width: 420px)
+	.shopfrontCard
+		&__mobile
+			position: relative
+			padding: 12px 0px
+			border-radius: 20px
+			box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1)
+			width: 100%
+			background: color.$color-white
+
+			img
+				width: 100%
+				height: 100px
+				object-fit: cover
+				margin-bottom: 10px
+
+			.wrapper
+				flex-direction: column
+				align-items: flex-start 
+				padding: 0 12px
+				margin-bottom: 19px
+
+				&__actual
+					font-size: 16px
+					margin-bottom: 4px
+
+				&__old
+					font-size: 12px
+
+				&__brand
+					font-weight: 600
+					font-size: 14px
+					margin-bottom: 6px
+
+				&__number
+					font-size: 10px
+
+			.control
+				&__like
+					position: absolute
+					top: 17px
+					right: 19px
+					border: none
+					width: 22px
+					height: 18px
+
+	.title
+		padding: 0 12px
+
+	.control
+		padding: 0 12px
+
+		&__buy
+			font-size: 13px

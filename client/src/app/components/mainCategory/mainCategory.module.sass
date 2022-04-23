@@ -1,0 +1,64 @@
+.category
+	display: flex
+	padding: 0 48px
+	column-gap: 24px
+	min-height: 102px 
+	transform: translateY(-50%)
+	&__card
+		display: flex
+		flex-grow: 1 
+		border-radius: 20px
+		column-gap: 12px
+		align-items: center
+		padding: 16px
+		background: white
+		overflow: hidden
+		height: 102px 
+
+		&:nth-of-type(3)
+			flex-grow: 5
+	
+	&__block
+		display: flex
+		flex-direction: column
+		row-gap: 4px
+
+	&__image
+		display: block
+		width: 70px
+		height: 70px
+		border-radius: 50%
+
+	&__title
+		font-family: Aeroport
+		font-style: normal
+		font-weight: normal
+		font-size: 22px
+		line-height: 100% 
+		letter-spacing: -0.03em 
+		color: #000000
+
+	&__subtitle
+		display: flex
+		font-size: 16px
+		column-gap: 12px
+		line-height: 100% 
+		text-decoration-line: underline 
+		color: #3597D0
+		flex-wrap: wrap
+
+@media (max-width: 420px)
+	.category
+		display: flex
+		flex-direction: column	
+		padding: 0px
+		row-gap: 12px 
+		margin: 24px 0 50px
+		transform: translateY(0%)
+		&__card
+			box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03)
+			width: 100%
+			&_inSlider
+				width: 336px
+			&:nth-of-type(3)
+				display: none

@@ -1,0 +1,114 @@
+// @use '../fonts/font' as fonts
+@use './_colors' as colors
+@use '../fonts/font' as *
+
+*
+	box-sizing: border-box
+
+#root
+	overflow-x: hidden
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+	font-family: 'Aeroport'
+	font-style: normal
+	font-weight: normal
+	font-family: Aeroport
+	box-sizing: border-box
+	font-smooth: always
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: antialiased
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section 
+	display: block
+
+body
+	line-height: 1
+
+button
+	border: none
+
+ol, ul
+	list-style: none
+
+blockquote, q 
+	quotes: none
+
+// img
+	// image-rendering: pixelated
+	// image-rendering: crisp-edges
+
+blockquote:before, blockquote:after,
+q:before, q:after 
+	content: ''
+	content: none
+
+table 
+	border-collapse: collapse
+	border-spacing: 0
+
+.container
+	width: auto
+	margin: 0 auto
+
+.wrapper
+	padding: 24px 24px 70px
+	background:  colors.$color-grey
+	border-radius: 30px
+	width: 1440px
+	margin: 0 auto
+
+	&__category
+		padding-top: 60px
+		background: beige
+
+	&:nth-of-type(2n)
+		background:  colors.$color-white
+
+// .swiper-slide-shadow
+// 	border-radius: 16px
+// 	filter: drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.35))
+
+@media (max-width: 1300px)
+	.container
+		width: 100vw
+		// overflow-x: hidden
+		
+@media (max-width: 420px)
+	.container
+		width: auto
+		overflow-x: hidden
+
+	.wrapper 
+		flex-direction: column
+		row-gap: 24px
+		padding: 24px
+		background:  colors.$color-grey
+		border-radius: 30px
+		width: auto
+		
+	.swiper-slide-shadow
+		border-radius: 18px
+		filter: drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.35))

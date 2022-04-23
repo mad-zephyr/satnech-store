@@ -1,0 +1,40 @@
+@use '../../../global' as *
+
+.title
+	@include fontStyle(32px, 120%, $color-black, 400)
+	margin-bottom: 32px
+
+.form
+	display: flex
+	flex-wrap: wrap
+	column-gap: 12px
+	row-gap: 24px
+	margin-bottom: 24px
+
+	& > *
+		width: calc( 30% - 6px )
+
+.control
+	display: flex
+	column-gap: 12px
+	justify-content: flex-end
+
+	button
+		height: 48px
+		padding: 12px 48px
+		border-radius: 5px
+		@include fontStyle(16px, 120%, $color-white, 400)
+		cursor: pointer
+
+		&:first-of-type
+			background: rgba($color-dark-grey, 80%)
+
+		&:last-of-type
+			background: $color-blue
+
+		&:disabled
+			background: rgba($color-dark-grey, 80%)!important
+			cursor: auto
+	
+
+

@@ -1,0 +1,6 @@
+{
+	"port": 8080,
+	"mongoUri": "mongodb+srv://tech-app:BQiNLXjAraFpI1cZ@cluster0.x8zte.mongodb.net/santech-app?retryWrites=true&w=majority",
+	"secretOrPrivateKey": "if You Need Some Private You Need Stay At Home",
+	"secretOrRefreshKey": "One fresh Juice please"
+}

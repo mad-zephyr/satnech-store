@@ -1,0 +1,83 @@
+@use '../../global/_colors' as colors
+.category
+	display: flex
+	padding: 0 48px
+	column-gap: 24px
+	&__card
+		display: flex
+		flex-grow: 1 
+		border-radius: 20px
+		column-gap: 12px
+		align-items: center
+		padding: 16px
+		background: colors.$color-white
+		height: 102px
+		&_inSlider
+			width: 336px
+		a
+			color: colors.$color-black
+
+	&__block
+		display: flex
+		flex-direction: column
+		row-gap: 4px
+	&__image
+		display: block
+		width: 70px
+		height: 70px
+		border-radius: 50%
+	&__title
+		font-family: Aeroport
+		font-style: normal
+		font-weight: normal
+		font-size: 22px
+		line-height: 100% 
+		letter-spacing: -0.03em 
+	&__subtitle
+		display: flex
+		font-size: 16px
+		column-gap: 12px
+		line-height: 100% 
+		text-decoration-line: underline 
+		color: #3597D0
+
+.one
+	background: colors.$color-black
+	color: colors.$color-white
+	border: none
+	a
+		color: colors.$color-white
+		text-decoration-color: colors.$color-white
+.two
+	background: colors.$color-middle-grey
+	color: colors.$color-black
+	border: none
+	a 
+		text-decoration-color: colors.$color-black
+.three
+	background: colors.$color-white
+	color: colors.$color-black
+	border: 2px solid colors.$color-middle-grey
+	a
+		color: colors.$color-black
+		text-decoration-color: colors.$color-black
+
+@media (max-width: 420px)
+	.category
+		display: flex
+		flex-direction: column	
+		padding: 0px
+		row-gap: 12px
+
+		&__card
+			box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03)
+			width: 100%
+			
+			&_inSlider
+
+				width: calc(100%)
+			&:nth-of-type(3)
+				display: none
+
+
+

@@ -1,0 +1,78 @@
+@use '../../global' as *
+
+.user
+	min-height: calc(100vh - 128px - 248px)
+	background: #DDE3EA
+	padding: 24px 0 
+
+	&__wrapper
+		width: 1440px
+		margin: 0 auto
+
+	&__container
+		display: flex
+		width: 1440px
+		margin: 0 auto
+		min-height: 400px
+		box-shadow: 40px 40px 60px rgba(0, 0, 0, 0.1)
+		background: $color-white
+		border-radius: 10px
+		width: calc(100% - 48px)
+		overflow: hidden
+
+	&__data
+		padding: 32px
+		flex-grow: 1
+		width: auto
+
+	&__control
+		display: flex
+		flex-direction: column
+		row-gap: 12px
+		background: rgba( $color-blue, 20%)
+		min-width: 220px
+		width: 220px
+		height: auto
+		padding: 32px 12px 
+
+.button
+	display: flex
+	align-items: center
+	justify-content: space-between
+	height: 48px
+	width: 100%
+	background: rgba(0, 0, 0, 0)
+	@include fontStyle(16px, 24px, darken($color-blue, 30%), 400)
+	border-radius: 5px
+	border: 1px solid rgba($color-blue, 30%)
+	padding: 12px
+	cursor: pointer
+	text-decoration: none
+	text-transform: capitalize
+	white-space: nowrap
+	transition: 0.3s all ease
+
+	svg
+		fill: darken($color-blue, 30%)
+		transition: 0.3s transform ease
+
+	&:hover
+		background: $color-blue
+		color: $color-white
+		border: 1px $color-blue solid
+
+		svg
+			fill: $color-white
+			transform: translateX(6px)
+
+	&__active
+		background: $color-blue
+		color: $color-white
+		border: 1px $color-blue solid
+
+.logout
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	flex-grow: 1
+

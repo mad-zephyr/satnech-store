@@ -1,0 +1,23 @@
+@use '../../global/_colors' as color
+@use '../../global/_fonts' as *
+
+.dropDown
+	display: flex
+	flex-direction: column
+	flex-wrap: wrap
+	width: calc( 50% - 8px )
+
+	label
+		display: flex
+		flex-direction: column
+		row-gap: 6px
+		@include fontStyle(16px, 120%, color.$color-black)
+		margin-bottom: 6px
+
+	select
+		height: 48px
+		flex-grow: 1
+		margin: 4px 0 0 
+		@include fontStyle(16px, 120%, color.$color-black)
+		border: 1px solid color.$color-middle-grey
+		border-radius: 5px

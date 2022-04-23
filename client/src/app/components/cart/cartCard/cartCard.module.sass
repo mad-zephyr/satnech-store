@@ -1,0 +1,230 @@
+@use '../../../global/_colors' as color
+@use '../../../global/_fonts' as *
+
+.product
+	position: relative
+	display: flex
+	width: 100%
+	min-height: 245px
+	height: fit-content
+	padding: 30px
+	column-gap: 24px
+
+	& > *
+		user-select: none
+
+	&::after
+		content: ''
+		display: block
+		width: 100%
+		left: 0
+		position: absolute
+		bottom: 0
+		height: 1px
+		background: rgba(0, 0, 0, 0.1)
+
+.btn
+	&__favorite
+		position: absolute
+		cursor: pointer
+		fill: color.$color-blue
+
+	&__delete
+		display: flex
+		cursor: pointer
+
+	&__delete, 	&__favorite
+		&:hover
+			stroke: color.$color-blue
+			fill: color.$color-blue
+
+
+.left
+	position: relative
+
+	img
+		width: 185px
+		height: 185px
+		object-fit: cover
+		border-radius: 4px
+
+.center
+	display: flex
+	flex-direction: column
+	row-gap: 12px
+	width: 40%
+
+.title
+	@include fontStyle(20px, 120%, color.$color-black, 600)
+	// margin-bottom: 20px
+
+.price
+	@include fontStyle(18px, 120%, color.$color-black, 500)
+	flex-grow: 1
+
+.info
+	display: flex
+	justify-content: space-between
+	align-items: flex-end
+
+.brand
+	@include fontStyle(14px, 100%, color.$color-dark-grey, 400)
+
+.sku
+	text-align: right
+	@include fontStyle(12px, 100%, color.$color-dark-grey, 400)
+
+.control
+	display: flex
+
+	&__dicrease, &__increase
+		display: flex
+		align-items: center
+		justify-content: center
+		height: 100%
+		width: 44px
+		border-radius: 3px
+		border: 1px solid color.$color-blue
+		cursor: pointer
+
+	&__dicrease, &__increase
+		border: 1px solid color.$color-blue
+		transition: 0.3s background ease
+
+		svg
+			fill: color.$color-blue
+
+		&:hover
+			background: color.$color-blue
+			svg
+				fill: color.$color-white
+
+		&:active
+			background: darken(color.$color-blue, 15%)
+
+	&__wrapper
+		display: flex
+		align-self: flex-end
+		column-gap: 8px
+		height: 44px
+		width: 100%
+
+	&__input
+		display: flex
+		align-items: center
+		justify-content: center
+		border: 1px solid color.$color-light-grey
+		border-radius: 3px
+		height: 100% 
+		background: color.$color-white
+		padding: 0px
+		margin: 0
+		text-align: center
+		flex-grow: 1
+		@include fontStyle(18px, 120%, color.$color-black, 500)
+			
+.right
+	display: flex
+	flex-grow: 1
+	flex-direction: column
+	align-items: flex-end
+	justify-content: space-between
+
+	&__total
+		display: flex
+		@include fontStyle(36px, 100%, color.$color-black, 600)
+
+		span
+			@include fontStyle(14px, 100%, color.$color-black, 400)
+
+		
+.addComment
+	text-align: right
+	width: min-content
+	@include fontStyle(13px, 100%, color.$color-blue, 400)
+	text-decoration: underline
+
+
+@media ( max-width: 420px )
+	.product
+		display: flex
+		padding: 10px
+		column-gap: 12px
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1)
+		border-radius: 10px
+		min-height: inherit
+		background: white
+		border: 1px solid color.$color-middle-grey
+
+		&::after
+			content: ''
+			height: 0px
+
+	.btn
+		&__favorite
+			bottom: 0
+			left: 50%
+			transform: translateX(-50%)
+
+			svg
+				width: 16px
+	
+		&__delete
+			display: flex
+			cursor: pointer
+
+			svg
+				width: 16px
+				
+	.center
+		width: 50%
+
+	.left
+		img
+			width: 48px
+			height: 48px
+			object-fit: cover
+			border-radius: 4px
+
+	.title
+		@include fontStyle(16px, 120%, color.$color-black, 600)
+		// word-break: break-all
+
+	.right
+		&__total
+			display: flex
+			@include fontStyle(18px, 140%, color.$color-black, 600)
+
+			span
+				@include fontStyle(11px, 160%, color.$color-black, 400)
+
+	.control
+		display: flex
+
+		&__dicrease, &__increase
+			width: 24px
+			border-radius: 3px
+
+		&__input
+			@include fontStyle(14px, 120%, color.$color-black, 500)
+
+		&__wrapper
+			height: 24px
+
+	.addComment
+		display: none
+
+	.info
+		display: none
+	
+	.price
+		@include fontStyle(14px, 120%, color.$color-black, 500)
+		flex-grow: 1
+		margin-bottom: 4px
+
+	.center 
+		row-gap: 8px
+
+	.delete
+		svg
+			width: 14px

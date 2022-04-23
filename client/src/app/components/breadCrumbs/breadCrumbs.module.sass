@@ -1,0 +1,37 @@
+@use '../../global/_colors' as colors
+@use '../../global/_fonts' as fonts
+
+.breadCrumbs
+	width: 1440px
+	margin: 0 auto
+	margin-bottom: 24px
+	@include fonts.fontStyle(14px, 130%, colors.$color-black)
+
+	span
+		margin-right: 4px
+
+		a
+			text-decoration: none
+			color: colors.$color-black
+
+		&::after
+			content: '/'
+			margin-left: 4px
+
+		&:last-of-type
+			&::after
+				content: ''
+
+	span::first-letter
+		text-transform: uppercase
+
+@media  (max-width: 420px)
+
+	.breadCrumbs
+		span
+			margin-right: 4px
+			@include fonts.fontStyle(10px, 130%, colors.$color-black)
+
+			a
+				text-decoration: none
+				color: colors.$color-black

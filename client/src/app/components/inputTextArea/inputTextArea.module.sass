@@ -1,0 +1,62 @@
+@use '../../global/_colors' as color
+@use '../../global/_fonts' as *
+
+.input
+	position: relative
+	display: flex
+	flex-direction: column
+	row-gap: 4px
+	flex-grow: 1
+	width: 100%
+
+	textarea
+		width: 100%
+		border: none
+		height: auto
+		@include fontStyle(16px, 120%, color.$color-black)
+		background: rgba(color.$colos-light-middle-grey, 40%)
+		border-radius: 5px
+		padding: 8px 12px
+		margin: 4px 0
+		resize: vertical
+
+		&::-webkit-resizer
+			display: none
+
+	label
+		@include fontStyle(16px, 24px, color.$color-black)
+
+	&__outline
+		width: calc( 50% - 8px )
+
+		textarea
+			background: white
+			border: 1px solid color.$color-middle-grey
+			border-radius: 5px
+
+	&__error
+
+		textarea
+			border: 2px solid color.$color-alert 
+			outline: none
+
+	&__wrapper
+		position: relative
+
+.icons
+	display: flex
+	align-items: center
+	position: absolute
+	top: 12px
+	right: 12px
+	height: 32px
+
+	&__drag
+		position: absolute
+		bottom: 4px
+		right: 1px
+		pointer-events: none
+		cursor: resize 
+
+.error
+	@include fontStyle(12px, 120%, color.$color-alert)

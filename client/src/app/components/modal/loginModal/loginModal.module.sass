@@ -1,0 +1,71 @@
+@use '../../../global/_colors' as color
+@use '../../../global/_fonts' as *
+
+.login
+	display: flex
+	flex-direction: column
+	margin: 12px 0px 0px
+
+	label
+		margin-bottom: 16px
+
+.button
+	background: color.$color-blue
+	color: color.$color-white
+	border-radius: 5px
+	height: 52px
+	@include fontStyle(16px, 24px, color.$color-white)
+	transition: 0.3s background ease
+	cursor: pointer
+
+	&:hover
+		background: darken(color.$color-blue, 20%)
+
+.line
+	width: 100%
+	opacity: 0.3
+
+.signup
+	@include fontStyle(16px, 24px, color.$color-blue)
+	text-decoration: underline
+	text-align: center
+	margin: 12px 0
+	cursor: pointer
+
+.social
+	display: flex
+	flex-direction: column
+
+	p
+		text-align: center
+		@include fontStyle(16px, 24px, color.$color-black)
+
+	&__control
+		display: flex
+		column-gap: 16px
+		padding: 16px 0 0 
+
+		button
+			display: flex
+			align-items: center
+			justify-content: center
+			padding: 0
+			background: color.$color-white
+			height: 48px
+			border: 1px solid rgba(color.$color-dark-grey, 30%)
+			box-sizing: border-box
+			border-radius: 5px
+			flex-grow: 1
+
+
+.disabled
+	background: color.$color-dark-grey
+	border-radius: 5px
+	height: 52px
+	@include fontStyle(16px, 24px, color.$color-white)
+	transition: 0.3s background ease
+	cursor: auto
+	&:hover
+		background: color.$color-dark-grey
+
+	

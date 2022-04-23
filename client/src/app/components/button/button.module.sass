@@ -1,0 +1,16 @@
+@use '../../global/_colors' as color
+@use '../../global/_fonts' as *
+
+.btn
+	display: flex
+	width: 56px
+	height: 56px
+	border-radius: 12px
+	align-items: center
+	justify-content: center
+	background: color.$color-grey
+
+	&__blue
+		background: color.$color-blue
+		@include fontStyle(16px, 24px, color.$color-white)
+		

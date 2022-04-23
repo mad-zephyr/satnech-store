@@ -1,0 +1,47 @@
+@use '../../global/_colors' as colors
+@use '../../global/_fonts' as fonts
+
+.icon
+	&__cart
+		fill: colors.$color-dark-grey
+		height: 30,
+		width: 30 
+
+.title
+	width: 1440px
+	margin: 0 auto
+	@include fonts.fontStyle(30px, 130%, colors.$color-black)
+
+.wrapper
+	display: grid
+	grid-template-columns: 1fr auto
+	width: 1140px
+	margin: 36px auto 96px
+	min-height: 620px
+	column-gap: 20px
+
+.products
+	display: flex
+	flex-direction: column
+	row-gap: 12px
+	flex-grow: 1
+	padding: 10px
+	flex-wrap: wrap
+	border-radius: 5px
+	border: 1px solid colors.$color-middle-grey
+
+.side
+	display: flex
+	position: relative
+	height: 100%
+
+
+@media ( max-width: 420px )
+	.wrapper
+		display: flex
+		width: 100%
+		flex-direction: column
+
+	.products
+		border: 0px solid colors.$color-middle-grey
+		padding: 0px

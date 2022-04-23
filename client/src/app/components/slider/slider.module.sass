@@ -1,0 +1,96 @@
+@use '../../global/_colors' as colors
+.slider
+	position: relative
+	z-index: 0
+
+	&__wrapper
+		position: relative
+		height: 492px
+		width: 100%
+	
+	&__navigation
+		display: flex
+		position: absolute
+		height: 100%
+		top: 0
+		width: 60px
+		align-items: center
+		justify-content: center
+		z-index: 20
+		cursor: pointer
+		&:last-of-type
+			right: 0
+
+	&__background
+		display: flex
+		flex-direction: column
+		justify-content: center
+		height: 492px
+		width: 100%
+		border-radius: 16px 
+		padding: 0 84px
+
+		span
+			display: flex
+			align-items: center
+
+			svg
+				width: 36px
+				height: 36px
+				margin-left: 12px
+				cursor: pointer
+				filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0))
+				transition: 0.3s all ease
+				fill: rgba(0, 0, 0, 0)
+
+				stroke: rgba(colors.$color-white, 80%)
+
+				circle
+					fill: rgba(colors.$color-black, 20%)
+					fill-opacity: 0.1
+
+				&:hover
+					filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.25))
+					stroke: rgba(colors.$color-white, 100%)
+					circle
+						fill: rgba(colors.$color-black, 60%)
+						fill-opacity: 0.1
+	
+	&__title
+		font-family: Aeroport
+		font-style: normal
+		font-weight: normal
+		font-size: 98px
+		line-height: 1.1
+		letter-spacing: -0.07em 
+		color: colors.$color-white
+		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15)
+	
+	&__subtitle
+		font-family: Aeroport
+		font-style: normal
+		font-weight: normal
+		font-size: 58px
+		line-height: 1
+		letter-spacing: -0.07em 
+		color: colors.$color-white
+		text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15)
+
+@media (max-width: 420px)
+	.slider
+		&__background
+			height: 347px
+			padding: 24px
+			row-gap: 12px
+			justify-content: flex-end
+
+		&__title
+			font-size: 48px
+			font-size: 48px
+			line-height: 42px
+			letter-spacing: -0.07em
+
+		&__subtitle
+			font-size: 28px
+			line-height: 38px
+			text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15)

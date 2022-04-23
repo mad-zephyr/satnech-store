@@ -1,0 +1,133 @@
+@use '../../../global/_colors' as color
+@use '../../../global/_fonts' as *
+
+.sideMenu
+	position: fixed
+	width: 100%
+	height: 100%
+	top: 0
+	z-index: 500
+	pointer-events: none
+	overflow-y: auto
+
+	&__bg
+		display: flex
+		width: 100%
+		height: 100%
+		background: rgba(0, 0, 0, 0)
+		backdrop-filter: blur(0px)
+		pointer-events: none
+		transition: 0.3s all ease
+
+		&_show
+			backdrop-filter: blur(4px)
+			background: rgba(0, 0, 0, 0.4)
+			pointer-events: auto
+
+	&__wrapper
+		position: fixed
+		display: flex
+		width: 40%
+		min-width: 600px
+		height: 100%
+		transform: translateX(-100%)
+		transition: 0.3s all ease
+		pointer-events: auto
+
+		&_show
+			transform: translateX(0%)
+			z-index: 100
+
+	&__menu
+		display: flex
+		flex-direction: column
+		flex-grow: 1
+		width: 40%
+		height: auto
+		background: white
+		order: 1
+		overflow-y: scroll
+		scrollbar-width: none
+
+		&::-webkit-scrollbar
+			display: none
+		
+.control
+	position: sticky
+	top: 0
+	z-index: 2
+	display: flex
+	align-items: center
+	height: 60px
+	width: 100%
+
+.btn
+	height: 60px
+
+	&__close
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 60px
+		height: 60px
+		order: 2
+		cursor: pointer
+
+	&__save
+		display: flex
+		align-items: center
+		justify-content: center
+		height: 60px
+		width: 50%
+		background: color.$color-white
+		transition: 0.3s background ease, 0.3s color ease
+		cursor: pointer
+
+	&__black
+		background: color.$color-black
+		color: color.$color-white
+
+		&:hover
+			background: darken(color.$color-black, 20% )
+			color: color.$color-white
+
+	&__blue
+		background: color.$color-blue
+		color: color.$color-white
+		&:hover
+			background: darken(color.$color-blue, 20% )
+			color: color.$color-white
+
+.cell
+	display: flex
+	position: relative
+	justify-content: center
+	align-items: center
+	flex-grow: 1
+	text-align: center
+	height: 36px
+	@include fontStyle(16px, 120%, rgba(color.$color-black, 70%), 500)
+	transition: 0.3s color ease
+	cursor: pointer
+
+	&::after
+		position: absolute
+		content: ''
+		width: 100%
+		height: 2px
+		background: rgba(color.$color-dark-grey, 70% )
+		bottom: 0
+		transition: 0.3s background ease
+
+	&__active
+		@include fontStyle(16px, 120%, color.$color-blue, 500)
+
+		&::after
+			position: absolute
+			content: ''
+			width: 100%
+			height: 2px
+			background: color.$color-blue
+			bottom: 0
+
+

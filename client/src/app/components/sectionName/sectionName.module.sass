@@ -1,0 +1,48 @@
+@use '../../global/_colors' as color
+@use '../../global/_fonts' as *
+
+.category
+  display: flex
+  align-items: center
+  justify-content: center
+  column-gap: 8px
+  margin: 0px 0 48px
+  &:first-of-type
+    margin: 36px 0 48px
+    
+  &__title
+    display: flex
+    align-items: center
+    column-gap: 8px
+
+  &__name
+    font-size: 38px
+    line-height: 50px 
+    align-items: center
+    letter-spacing: -0.03em
+    color: color.$color-black
+
+  &__btn
+    display: flex
+    align-items: center
+    justify-content: space-between
+    // column-gap: 48px
+    width: 248px
+    border-radius: 18px
+    height: 36px
+    padding: 12px 20px
+    border: 1px solid color.$color-blue
+
+@media (max-width: 420px)
+  .category
+    flex-direction: column
+    margin: 0px 0 24px
+    &__name
+      @include fontStyle(26px, 120%, color.$color-black, 600)
+      margin-bottom: 12px
+    
+    &:first-of-type
+      margin: 12px 0 24px
+
+    &__name
+      font-size: 26px

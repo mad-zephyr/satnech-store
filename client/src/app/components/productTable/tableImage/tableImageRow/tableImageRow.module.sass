@@ -1,0 +1,63 @@
+@use '../../../../global/_colors' as colors
+@use '../../../../global/_fonts' as *
+
+tbody
+	tr
+		user-select: none
+		&:last-of-type
+			td
+				border-bottom: 0px
+
+	tr
+		background: colors.$color-white
+
+		td 
+			box-sizing: border-box
+			vertical-align: middle
+			padding: 12px 6px
+			border-bottom: 1px solid rgba(colors.$color-black, 10%)
+			@include fontStyle(12px, 120%, rgba(colors.$color-black, 50%), 500)
+
+			&:nth-of-type(1)
+				width: 28px
+
+			&:nth-of-type(2)
+				width: 36px
+				text-align: center
+
+			.cell
+				display: flex
+				align-items: center
+
+			img
+				height: 40px
+				width: 40px
+				border-radius: 50%
+				object-fit: cover
+				border: 1px solid rgba(black, 5%)
+			
+
+.btn__drag
+	display: flex
+	flex-wrap: wrap
+	width: 28px
+	column-gap: 4px
+	row-gap: 4px
+	padding: 0px 8px
+	text-align: center
+	cursor: grab
+
+	&:hover
+		div
+			background: rgba(grey, 80% )
+
+	div
+		width: 4px
+		height: 4px
+		border-radius: 50%
+		background: rgba(grey, 40%)
+		transition: 0.3s background ease
+
+.remove
+	svg
+		cursor: pointer
