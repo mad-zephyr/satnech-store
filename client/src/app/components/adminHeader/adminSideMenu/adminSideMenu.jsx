@@ -4,7 +4,7 @@ import cn from 'classnames'
 import style from './adminSideMenu.module.sass'
 import setWindowOverflow from 'app/utils/windowOverflow'
 import { Link } from 'react-router-dom'
-import { logOut } from '../../../store/user';
+import { logOut } from '../../../store/user'
 import { useDispatch } from 'react-redux'
 
 const AdminSideMenu = (props) => {
