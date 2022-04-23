@@ -1,11 +1,11 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const config = require('config')
+const mongoose = require('mongoose')
 const chalk = require('chalk')
 const cors = require('cors')
-const initDatabase = require('./startUp/initDatabase')
 const routes = require('./routes/index')
 const path = require('path')
+const initDatabase = require('./startUp/initDatabase')
 
 const app = express()
 const PORT = config.get('port') ?? 8080
@@ -17,7 +17,7 @@ app.use('/api', routes)
 
 if (process.env.NODE_ENV === 'production') {
 	console.log('production')
-	app.use('/', express.static(path.join(__dirname, 'client')))
+	app.use('/', express.static(path.join(__dirname, 'client/build')))
 
 	const indexpath = path.join(__dirname, 'index.html')
 	app.get('*', (req, res) => {
