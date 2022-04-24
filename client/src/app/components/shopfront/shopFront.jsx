@@ -56,28 +56,30 @@ const ShopFront = ({ children, sliderOnMobile }) => {
     checkIfMobile()
   }, [])
 
-  const slidersArr = products?.map((product, index) => {
-    const { images = [{ src: imageBlock }], actualPrice, oldPrice, brand, sku } = product
-    const { title } = product[currentLang]
-    return <SwiperSlide
-        key={index}
-        className={cn(mobile && style.shopFront__cards_slide)}
-        style={{ height: 'auto' }}
-      >
-        <ShopfrontCard
-          img={images[0]?.src || imageBlock}
-          actualPrice={actualPrice}
-          oldPrice={oldPrice}
-          brand={brand}
-          allBrands={allBrands}
-          articul={`Art: ${sku}`}
-          title={title}
-          sliderOnMobile={sliderOnMobile}
-          mobile={mobile}
-          product={product}
-        />
-      </SwiperSlide>
-  })
+  const slidersArr = products
+    ?.filter(product => product.isShow)
+    ?.map((product, index) => {
+      const { images = [{ src: imageBlock }], actualPrice, oldPrice, brand, sku } = product
+      const { title } = product[currentLang]
+      return <SwiperSlide
+          key={index}
+          className={cn(mobile && style.shopFront__cards_slide)}
+          style={{ height: 'auto' }}
+        >
+          <ShopfrontCard
+            img={images[0]?.src || imageBlock}
+            actualPrice={actualPrice}
+            oldPrice={oldPrice}
+            brand={brand}
+            allBrands={allBrands}
+            articul={`Art: ${sku}`}
+            title={title}
+            sliderOnMobile={sliderOnMobile}
+            mobile={mobile}
+            product={product}
+          />
+        </SwiperSlide>
+    })
 
   return (
     <div className={style.shopFront}>

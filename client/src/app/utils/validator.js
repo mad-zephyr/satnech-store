@@ -1,7 +1,9 @@
 export function validator(data, config) {
     const errors = {}
-    function validate(validateMethod, data, config) {
+
+    function validate(validateMethod, data, config, usersPass) {
         let statusValidate
+
         switch (validateMethod) {
             case 'isRequired': {
                 if (typeof data === 'boolean') {
@@ -31,8 +33,11 @@ export function validator(data, config) {
                 break
             }
             case 'isExist': {
-                console.log(data)
                 statusValidate = Boolean(!data.value)
+                break
+            }
+            case 'passNotEqual': {
+                statusValidate = usersPass.password !== usersPass.rePassword
                 break
             }
             default:
@@ -46,7 +51,8 @@ export function validator(data, config) {
             const error = validate(
                 validateMethod,
                 data[fieldName],
-                config[fieldName][validateMethod]
+                config[fieldName][validateMethod],
+                data
             )
             if (error && !errors[fieldName]) {
                 errors[fieldName] = error

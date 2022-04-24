@@ -61,6 +61,14 @@ const AuthModal = ({ isOpenLoginModal, setIsOpenLoginModal }) => {
         value: 8
       }
     },
+    rePassword: {
+      isRequired: {
+        message: 'Пароль обязателен для заполнения'
+      },
+      passNotEqual: {
+        message: 'Пароли не совпадает'
+      }
+    },
     agrement: {
       isRequired: {
         message:
@@ -76,7 +84,6 @@ const AuthModal = ({ isOpenLoginModal, setIsOpenLoginModal }) => {
   }, [user, isSignup])
 
   useEffect(() => {
-    // setIsOpenLoginModal(false)
     if (isLoggedIn) {
       dispatch(loadUserData())
     }
@@ -84,6 +91,7 @@ const AuthModal = ({ isOpenLoginModal, setIsOpenLoginModal }) => {
 
   const validate = () => {
     const errors = validator(user[isSignup], validatorConfig)
+
     setErrors(errors)
     return Object.keys(errors).length > 0
   }

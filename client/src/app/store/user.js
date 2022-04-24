@@ -107,22 +107,30 @@ export const login =
 
 export const signUp =
     (payload) =>
-    async (dispatch) => {
-        dispatch(authRequested())
-        try {
-            const data = await authService.register(payload)
-            localStorageService.setTokens(data)
-            dispatch(authRequestSuccess({ userId: data.userId }))
-            dispatch(
-                createUser({
-                    id: data.localId,
-                    email: payload.email
-                })
-            )
-        } catch (error) {
-            dispatch(authRequestFailed(error.message))
+        async (dispatch) => {
+            dispatch(authRequested())
+            try {
+                const data = await authService.register(payload)
+
+                localStorageService.setTokens(data)
+                dispatch(authRequestSuccess({ userId: data.userId }))
+                dispatch(
+                    createUser({
+                        id: data.localId,
+                        email: payload.email
+                    })
+                )
+            } catch (error) {
+                const { code, message } = error.response.data.error
+
+                if (code === 400) {
+                    const errorMessage = generateAuthError(message)
+                    dispatch(authRequestFailed(errorMessage))
+                } else {
+                    dispatch(authRequestFailed(error.message))
+                }
+            }
         }
-    }
 
 export const logOut = () => (dispatch) => {
     localStorageService.removeAuthData()

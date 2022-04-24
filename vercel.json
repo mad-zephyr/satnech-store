@@ -24,7 +24,7 @@
           ]
       }
     ],
-  "builds":[ 
+     "builds":[ 
       { 
         "src": "server/app.js", 
         "use": "@vercel/node" 

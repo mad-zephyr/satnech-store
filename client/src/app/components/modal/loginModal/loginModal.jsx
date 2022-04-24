@@ -12,6 +12,7 @@ import { login } from 'app/store/user'
 
 const Login = ({ description, setIsSignup, isSignup, user, handlerUser, errors, isValid }) => {
   const dispatch = useDispatch()
+
   const handlerSignUp = () => {
     setIsSignup(prevState => !prevState)
   }

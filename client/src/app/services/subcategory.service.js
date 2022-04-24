@@ -1,6 +1,6 @@
 import httpService from './http.service'
 
-const subcategoryEndpoint = '/subcategory/'
+const subcategoryEndpoint = '/subcategory'
 
 const categoryService = {
     get: async () => {

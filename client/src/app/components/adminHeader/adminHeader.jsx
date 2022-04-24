@@ -10,11 +10,13 @@ import CatalogModal from '../modal/createCatalogModal/createCatalogModal'
 import DropDown from '../dropDown/dropDown'
 import CategoryModal from '../modal/categoryModal/categoryModal'
 import AdminSideMenu from './adminSideMenu/adminSideMenu'
+import SubcategoryModal from '../modal/subcategoryModal/subcategoryModal'
 
 const AdminHeader = ({ setIsSideOpen, filter, handlerSetFilter, catalogsList }) => {
   const [isOpen, setOpen] = useState(false)
   const [modalCatalog, setModalCatalog] = useState(false)
   const [modalCategory, setModalCategory] = useState(false)
+  const [modacSubcategory, setModalSubcategory] = useState(false)
 
   const currantLang = 'ru'
 
@@ -27,6 +29,9 @@ const AdminHeader = ({ setIsSideOpen, filter, handlerSetFilter, catalogsList }) 
   }
   const handlerCategoryModal = () => {
     setModalCategory(prevState => !prevState)
+  }
+  const handlerSubcategoryModal = () => {
+    setModalSubcategory(prevState => !prevState)
   }
 
   const startCreateNewProduct = () => {
@@ -48,6 +53,11 @@ const AdminHeader = ({ setIsSideOpen, filter, handlerSetFilter, catalogsList }) 
         isVisible = {modalCategory}
         setVisibility = {setModalCategory}
       />
+      <SubcategoryModal
+        header={'Create new subcategory'}
+        isVisible = {modacSubcategory}
+        setVisibility = {setModalSubcategory}
+      />
       <div className={style.header}>
         <div className={style.header__wrapper}>
           <div
@@ -67,8 +77,9 @@ const AdminHeader = ({ setIsSideOpen, filter, handlerSetFilter, catalogsList }) 
               <div
                 className={style.navigation__tab}
                 onClick={handlerCategoryModal}
-              >Категории товаров</div>
+                >Категории товаров</div>
               <div
+                onClick={handlerSubcategoryModal}
                 className={style.navigation__tab}
               >Подкатегории товаров</div>
             </div>

@@ -145,7 +145,6 @@ router.post('/token', async(req, res) => {
       })
     
   } catch (error) {
-    console.log('ERROR: ', error)
     res.status(500).json({
       message: 'Error on server, try later...'
     })

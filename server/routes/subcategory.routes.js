@@ -13,6 +13,25 @@ router.get('/', async (req, res) => {
 		})
 	}
 })
+router.post('/', authAdmin, async(req, res) => {
+	try {
+		const isExist = await Subcategory.findOne({ ru: req.body.ru})
+
+		if (!isExist) {
+			const createdSubCategory = await Subcategory.create({...req.body})
+			res.send(createdSubCategory)
+		} else {
+			res.status(500).json({
+				message: 'Subcategory already exist'
+			})
+		}
+		
+	} catch (error) {
+		res.status(500).json({
+			message: error._message
+		})
+	}
+})
 
 router.delete('/:subcategoriesId', authAdmin, async (req, res) => {
 	try {

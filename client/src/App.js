@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import Footer from 'app/components/footer/footer'
 import Header from 'app/components/header/header'
@@ -17,8 +17,29 @@ import UserPage from 'app/pages/userPage/userPage'
 import ProtectedRoute from 'app/hoc/protectedRoute'
 import ProtectedRouteAdmin from 'app/hoc/protectedAdminRoute'
 
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { getAuthErrors } from 'app/store/user'
+
 function App() {
   const location = useSelector(getLocation())
+  const errorAuth = useSelector(getAuthErrors())
+
+  useEffect(() => {
+    if (errorAuth) {
+      toast(errorAuth, {
+        className: 'Toastify__toast-theme--dark',
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+        }
+      )
+    }
+  }, [errorAuth])
 
   return (
     <>
@@ -39,6 +60,17 @@ function App() {
           <Redirect to='/' />
         </Switch>
         <Footer/>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </AppLoader>
     </>
   )

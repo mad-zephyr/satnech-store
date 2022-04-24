@@ -2,17 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InputText from 'app/components/input/input'
 import Checkbox from 'app/components/checkobox/checkobox'
-import { signUp } from 'app/store/user'
+import { getAuthErrors, signUp } from 'app/store/user'
 
 import { ReactComponent as GoogleIcon } from '../../../assets/googleIcon.svg'
 import { ReactComponent as FacebookIcon } from '../../../assets/facebookIcon.svg'
 
 import style from '../loginModal/loginModal.module.sass'
 import cn from 'classnames'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const SignUp = ({ description, setIsSignup, isSignup, user, handlerUser, errors, isValid }) => {
   const dispatch = useDispatch()
+  const authError = useSelector(getAuthErrors())
   const handlerSignUp = () => {
     setIsSignup(prevState => !prevState)
   }
@@ -20,10 +21,10 @@ const SignUp = ({ description, setIsSignup, isSignup, user, handlerUser, errors,
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!isValid) return
-    const newData = {
+    const newUser = {
       ...user[!isValid]
     }
-    dispatch(signUp(newData))
+    dispatch(signUp(newUser))
   }
 
   return (
@@ -36,7 +37,7 @@ const SignUp = ({ description, setIsSignup, isSignup, user, handlerUser, errors,
           name={'email'}
           type={'text'}
           onChange={handlerUser}
-          error={errors?.email}
+          error={errors?.email || authError}
         />
         <InputText
           label='Password'

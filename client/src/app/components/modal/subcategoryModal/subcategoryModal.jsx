@@ -5,15 +5,15 @@ import PropTypes from 'prop-types'
 import Modal from '../modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { validator } from 'app/utils/validator'
-import { getCatalogsList } from 'app/store/catalog'
 import { nanoid } from '@reduxjs/toolkit'
 import DropDown from 'app/components/dropDown/dropDown'
-import { createCategory } from 'app/store/category'
+import { getCategoryList } from 'app/store/category'
+import { createSubcategory } from 'app/store/subcategory'
 
-const CategoryModal = (props) => {
+const SubcategoryModal = (props) => {
   const { isVisible, setVisibility, header } = props
   const dispatch = useDispatch()
-  const catalogsList = useSelector(getCatalogsList())
+  const categoryList = useSelector(getCategoryList())
 
   const currantLang = 'ru'
 
@@ -21,7 +21,7 @@ const CategoryModal = (props) => {
     ru: '',
     en: '',
     ro: '',
-    parent: { value: null, label: 'Выберите родительский каталог' }
+    parent: { value: null, label: 'Выберите родительскую категорию' }
   }
   const [state, setState] = useState(initialState)
   const [errors, setErrors] = useState({})
@@ -38,7 +38,7 @@ const CategoryModal = (props) => {
         message: 'Поле обязательно для заполнения'
       },
       min: {
-        message: 'Название категории должно состоять минимум из 3 символов',
+        message: 'Название подкатегории должно состоять минимум из 3 символов',
         value: 3
       }
     },
@@ -47,7 +47,7 @@ const CategoryModal = (props) => {
         message: 'Поле обязательно для заполнения'
       },
       min: {
-        message: 'Название категории должно состоять минимум из 3 символов',
+        message: 'Название подкатегории должно состоять минимум из 3 символов',
         value: 3
       }
     },
@@ -56,7 +56,7 @@ const CategoryModal = (props) => {
         message: 'Поле обязательно для заполнения'
       },
       min: {
-        message: 'Название категории должно состоять минимум из 3 символов',
+        message: 'Название подкатегории должно состоять минимум из 3 символов',
         value: 3
       }
     }
@@ -88,13 +88,12 @@ const CategoryModal = (props) => {
         ...state,
         parent: state.parent.value
       }
-      dispatch(createCategory(newCategory))
+      dispatch(createSubcategory(newCategory))
       setVisibility(false)
       setState(initialState)
     }
   }
 
-  // console.log(state)
   const handlerChangeSelect = (target) => {
     setState((prevState) => ({
       ...prevState,
@@ -120,11 +119,11 @@ const CategoryModal = (props) => {
       header={header}
       isValid={isValid}
       onSave={handleSave}
-      info={'Create a new product category by first selecting the parent catalog. All fields are required '}
+      info={'Create a new product subcategory by first selecting the parent category. All fields are required '}
     >
       <DropDown
-        label='Choose parent catalog'
-        options={catalogsList}
+        label='Choose parent category'
+        options={categoryList}
         lang={currantLang}
         onChange={handlerChangeSelect}
         name={'parent'}
@@ -133,7 +132,7 @@ const CategoryModal = (props) => {
         error={errors.parent}
       />
       <InputText
-        label='Catalog Russian'
+        label='Subcategory Russian'
         value={state.ru}
         onChange={hadleChange}
         touchInput={touch}
@@ -142,7 +141,7 @@ const CategoryModal = (props) => {
         error={errors.ru}
       />
       <InputText
-        label='Catalog English'
+        label='Subcategory English'
         value={state.en}
         onChange={hadleChange}
         touchInput={touch}
@@ -151,7 +150,7 @@ const CategoryModal = (props) => {
         error={errors.en}
       />
       <InputText
-        label='Catalog Romanian'
+        label='Subcategory Romanian'
         value={state.ro}
         touchInput={touch}
         name={'ro'}
@@ -163,10 +162,10 @@ const CategoryModal = (props) => {
   )
 }
 
-CategoryModal.propTypes = {
+SubcategoryModal.propTypes = {
   isVisible: PropTypes.bool,
   header: PropTypes.string,
   setVisibility: PropTypes.func
 }
 
-export default CategoryModal
+export default SubcategoryModal

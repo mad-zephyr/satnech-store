@@ -1,5 +1,4 @@
 const express = require('express')
-const config = require('config')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const chalk = require('chalk')
@@ -9,7 +8,6 @@ const path = require('path')
 const initDatabase = require('./startUp/initDatabase')
 
 const app = express()
-// const PORT = config.get('port') ?? 8080
 const PORT = process.env.PORT ?? 8080
 
 app.use(express.json())
