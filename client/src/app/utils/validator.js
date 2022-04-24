@@ -30,6 +30,11 @@ export function validator(data, config) {
                 statusValidate = data.length < config.value
                 break
             }
+            case 'isExist': {
+                console.log(data)
+                statusValidate = Boolean(!data.value)
+                break
+            }
             default:
                 break
         }

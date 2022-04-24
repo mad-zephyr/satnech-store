@@ -128,7 +128,6 @@ router.post('/token', async(req, res) => {
     const { refreshToken, userId } = req.body
 
     const data = await tokenServices.validateRefresh(refreshToken)
-
     const dbToken = await tokenServices.findToken(refreshToken)
 
     if (isTokenInvalid(data, dbToken)) {

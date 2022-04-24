@@ -86,7 +86,7 @@ const productsSlice = createSlice({
             state.cart[index].quantity += 1
         },
         dicrease: (state, action) => {
-            const index = state.cart.findIndex(prod => prod.id === action.payload)
+            const index = state.cart.findIndex(prod => prod._id === action.payload)
             state.cart[index].quantity > 1 && (state.cart[index].quantity -= 1)
         },
         productDeletedFromCart: (state, action) => {

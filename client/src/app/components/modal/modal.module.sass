@@ -87,13 +87,13 @@
 					background: darken(colors.$color-black, 20% )
 
 			&:last-of-type
-				background: colors.$color-blue
+				
 
 				&:hover
 					background: darken(colors.$color-blue, 20% )
 
-				&:disabled
-					background: darken(colors.$color-blue, 25% )
+				// &:disabled
+				// 	background: darken(colors.$color-blue, 25% )
 
 .show
 	position: fixed
@@ -104,6 +104,11 @@
 	pointer-events: auto
 	// animation: onShow .5s 1
 
+.disabled
+	background: darken(colors.$color-blue, 25% )
+
+.active
+	background: colors.$color-blue
 
 // @keyframes onShow 
 // 	0% 

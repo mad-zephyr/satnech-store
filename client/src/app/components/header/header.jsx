@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import styles from './header.module.sass'
 
-import { ReactComponent as BtnMenu } from '../../assets/btn-menu.svg'
-import { ReactComponent as Location } from '../../assets/location.svg'
-import { ReactComponent as SearchIcon } from '../../assets/search.svg'
-import { ReactComponent as HeartIcon } from '../../assets/heart.svg'
-import { ReactComponent as UserIcon } from '../../assets/user.svg'
-import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { ReactComponent as BtnMenu } from 'app/assets/btn-menu.svg'
+import { ReactComponent as Location } from 'app/assets/location.svg'
+import { ReactComponent as SearchIcon } from 'app/assets/search.svg'
+import { ReactComponent as HeartIcon } from 'app/assets/heart.svg'
+import { ReactComponent as UserIcon } from 'app/assets/user.svg'
+import { ReactComponent as Logo } from 'app/assets/logo.svg'
 
 import HeaderCart from '../cart/headerCart'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
-import useEvent from '../../hooks/useEvent'
+import useEvent from 'app/hooks/useEvent'
 
 import AuthModal from '../modal/authModal/authModal'
 import { useSelector } from 'react-redux'
 import { getCurrentUser } from 'app/store/user'
+import HeaderMenu from './headerMenu/headerMenu'
 
 const Header = () => {
   const currentUser = useSelector(getCurrentUser())
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false)
   const [isTop, setIsTop] = useState(false)
+  const [isOpenMenu, setOpenMenu] = useState(false)
 
   useEffect(() => {
     document.querySelector('.container').style.paddingTop = '136px'
@@ -57,8 +59,14 @@ const Header = () => {
             <div className={styles.center}>
               <div className={styles.menu}>
                 <button className={styles.btn}>
-                  <BtnMenu />
+                  <BtnMenu
+                  />
                 </button>
+                <HeaderMenu
+                  isOpen={isOpenMenu}
+                  onOpen ={setOpenMenu}
+                  handlerShowLogin={handlerShowLogin}
+                />
                 <span className={styles.menu__title}>Catalog</span>
               </div>
 

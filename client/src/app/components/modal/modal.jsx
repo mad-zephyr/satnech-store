@@ -6,7 +6,7 @@ import { ReactComponent as CloseIcon } from '../../assets/CloseIcon.svg'
 import setWindowOverflow from 'app/utils/windowOverflow'
 
 const Modal = (props) => {
-  const { isShow, header, onShow, children, info, showControl = true, isValid = true, onSave } = props
+  const { isShow, header, onShow, children, info, showControl = true, isValid = false, onSave } = props
 
   const handlerShow = () => {
     onShow(prevState => !prevState)
@@ -35,13 +35,10 @@ const Modal = (props) => {
 
       </div>
         {showControl && <div className={style.modal__control}>
-          <button
-            onClick={handlerShow}
-          >Cancel</button>
-          <button
-            className={cn(isValid && style.disabled)}
-            disabled={isValid}
-            onClick={onSave}
+          <button onClick={handlerShow}>Cancel</button>
+          <button onClick={onSave}
+            className={cn(isValid && style.disabled, !isValid && style.active)}
+            // disabled={isValid}
           >Save</button>
         </div>}
     </div>

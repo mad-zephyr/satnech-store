@@ -6,7 +6,7 @@ import style from './dropDown.module.sass'
 import Select from 'react-select'
 
 const DropDown = (props) => {
-  const { className, label, value, options, name, lang, onChange, isMulti = false, styles } = props
+  const { className, label, value, options, name, lang, onChange, isMulti = false, styles, error } = props
 
   const optionArr = options?.map((opt, index) => (
     { value: `${opt._id}`, label: `${opt[lang]}` }
@@ -30,6 +30,7 @@ const DropDown = (props) => {
           isMulti={isMulti}
           styles={styles}
         />
+         {error && <p className={style.error}>{ error }</p>}
       </label>
     </div>
   )
@@ -49,7 +50,8 @@ DropDown.propTypes = {
   onChange: PropTypes.func,
   isMulti: PropTypes.bool,
   styles: PropTypes.object,
-  options: PropTypes.array
+  options: PropTypes.array,
+  error: PropTypes.string
 }
 
 export default DropDown

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 
@@ -10,13 +10,19 @@ import { ReactComponent as HidePassIcon } from 'app/assets/charm_eye-slash.svg'
 import style from './input.module.sass'
 
 const InputText = (props) => {
-  const { label, type, value, classes, name, onChange, placeholder, error } = props
+  const { label, type, value, classes, name, onChange, placeholder, error, touchInput } = props
   const [isSeePass, setIsSeePass] = useState('password')
   const [touched, setTouched] = useState(false)
 
   const handleChange = ({ target }) => {
     onChange({ name: target.name, value: target.value })
   }
+
+  useEffect(() => {
+    if (touchInput) {
+      handleBlur()
+    }
+  }, [touchInput])
 
   const handleBlur = () => {
     setTouched(true)
@@ -71,7 +77,7 @@ const InputText = (props) => {
 }
 
 InputText.defaultProps = {
-  placeholder: 'PlaceHolder'
+  placeholder: 'Place Holder'
 }
 
 InputText.propTypes = {
@@ -82,6 +88,7 @@ InputText.propTypes = {
   name: PropTypes.string,
   classes: PropTypes.string,
   error: PropTypes.string,
+  touchInput: PropTypes.bool,
   onChange: PropTypes.func
 }
 
