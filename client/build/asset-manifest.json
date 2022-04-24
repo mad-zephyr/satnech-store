@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4fa42ec7.css",
-    "main.js": "/static/js/main.ce0f3ed9.js",
+    "main.css": "/static/css/main.3c85e0d6.css",
+    "main.js": "/static/js/main.af842967.js",
     "static/media/slider1.jpg": "/static/media/slider1.c5e918d8ad6eb0cb76c0.jpg",
     "static/media/images-kitchen.jpeg": "/static/media/images-kitchen.070b8af51b0e1d9074e0.jpeg",
     "static/media/Aeroport-Light.woff": "/static/media/Aeroport-Light.e2d658d41339b06c12cd.woff",
@@ -19,8 +19,8 @@
     "static/media/sliderFinger.svg": "/static/media/sliderFinger.0c7bd1f76e1460362b90.svg",
     "static/media/корзина.svg": "/static/media/корзина.8acd3ead8fadf577a1067c9efc4d1d55.svg",
     "static/media/ok-icon.svg": "/static/media/ok-icon.bdb89b4a5cb85c045881e16372872892.svg",
-    "static/media/search.svg": "/static/media/search.ef302e4dd6d8458e92b73ca06d36495e.svg",
     "index.html": "/index.html",
+    "static/media/search.svg": "/static/media/search.ef302e4dd6d8458e92b73ca06d36495e.svg",
     "static/media/cart.svg": "/static/media/cart.7c6ca476916b920fde6c9b782b096ca5.svg",
     "static/media/delete.svg": "/static/media/delete.f9840ece865b778fc66dd40e106a7872.svg",
     "static/media/charm_eye-slash.svg": "/static/media/charm_eye-slash.fe999336085646bb30319eed7ce28651.svg",
@@ -46,11 +46,11 @@
     "static/media/bulet.svg": "/static/media/bulet.e0541460cf36f8228454.svg",
     "static/media/btn-menu.svg": "/static/media/btn-menu.5770167afe7f76141c15aed03fccd3c3.svg",
     "static/media/minus.svg": "/static/media/minus.e3b917d36e79695e80c83b8e80266f70.svg",
-    "main.4fa42ec7.css.map": "/static/css/main.4fa42ec7.css.map",
-    "main.ce0f3ed9.js.map": "/static/js/main.ce0f3ed9.js.map"
+    "main.3c85e0d6.css.map": "/static/css/main.3c85e0d6.css.map",
+    "main.af842967.js.map": "/static/js/main.af842967.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fa42ec7.css",
-    "static/js/main.ce0f3ed9.js"
+    "static/css/main.3c85e0d6.css",
+    "static/js/main.af842967.js"
   ]
 }

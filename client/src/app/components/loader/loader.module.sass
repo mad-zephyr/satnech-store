@@ -1,0 +1,40 @@
+@use '../../global' as *
+
+.loader
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100vw
+  height: 100vh
+  background: $color-blue
+
+.inner
+  position: absolute
+  display: block
+  width: 80px
+  height: 80px
+  background: white
+  z-index: 0
+  box-shadow: 0px 0px 4px 6px rgba(0, 0, 0, 0.05)
+  
+  // @keyframes duration | easing-function | delay | iteration-count | direction | fill-mode | play-state | name 
+  animation: 2s ease-in 0.4s infinite reverse both running loader
+
+.text
+  z-index: 1
+
+@keyframes loader
+  0% 
+    transform: rotateZ(deg)
+    border-radius: 0px
+  
+  50%
+    border-radius: 50px
+
+  100%
+    transform: rotateZ(360deg)
+    border-radius: 0px
+    
+
+

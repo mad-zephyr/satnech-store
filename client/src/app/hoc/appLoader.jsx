@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductsLoadingStatus, loadProductsList, loadProductsFromStorage } from '../store/products'
@@ -8,6 +9,7 @@ import { loadCatalogList } from 'app/store/catalog'
 import { loadCategoryList } from 'app/store/category'
 import { getBrandsLoadingStatus, loadBrandsList } from 'app/store/brands'
 import { getSubcategoriesLoadingStatus, loadSubcategoryList } from 'app/store/subcategory'
+import Loader from 'app/components/loader/loader'
 
 const AppLoader = ({ children }) => {
     const dispatch = useDispatch()
@@ -28,7 +30,9 @@ const AppLoader = ({ children }) => {
         dispatch(loadProductsFromStorage(cartProducts))
     }, [])
 
-    if (!productsStatusLoading && !categoryLoadingStatus && !brandsLoadingStatus && !subcategoryLoadingStatus) return 'Loading...'
+    if (!productsStatusLoading && !categoryLoadingStatus && !brandsLoadingStatus && !subcategoryLoadingStatus) {
+        return <Loader />
+    }
     return children
 }
 

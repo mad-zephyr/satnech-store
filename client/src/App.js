@@ -55,7 +55,7 @@ function App() {
             component={AdminProducts}
           />
           <Route path='/product/:id?' component={ProductPage} />
-          <Route path='/:cart/:step?' component={CartPage} />
+          <Route path='/cart/:step?' component={CartPage} />
           <Route path='/' exact component={MainPage} />
           <Redirect to='/' />
         </Switch>
