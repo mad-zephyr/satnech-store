@@ -1,4 +1,4 @@
 {
-  "apiEndpoint": "http://satnech.vercel.app/api",
+  "apiEndpoint": "https://satnech.vercel.app/api",
   "isFireBase": false
 }
