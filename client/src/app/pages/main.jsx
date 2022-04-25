@@ -43,9 +43,9 @@ const MainPage = () => {
       </Wrapper>
       <CategorySlider sliderOnMobile={true} />
       <Wrapper background="white" style={{}}>
-        <SectionName btn title="Инсталяции" />
+        <SectionName btn title="Смесители" />
         <ShopFront
-          category={'625555f5cba888079b7f4f62'}
+          category={'625555f5cba888079b7f4f64'}
         />
       </Wrapper>
       <Wrapper>
