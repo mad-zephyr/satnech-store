@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3c85e0d6.css",
-    "main.js": "/static/js/main.af842967.js",
+    "main.css": "/static/css/main.46cf9c48.css",
+    "main.js": "/static/js/main.eba75893.js",
     "static/media/slider1.jpg": "/static/media/slider1.c5e918d8ad6eb0cb76c0.jpg",
     "static/media/images-kitchen.jpeg": "/static/media/images-kitchen.070b8af51b0e1d9074e0.jpeg",
     "static/media/Aeroport-Light.woff": "/static/media/Aeroport-Light.e2d658d41339b06c12cd.woff",
@@ -46,11 +46,11 @@
     "static/media/bulet.svg": "/static/media/bulet.e0541460cf36f8228454.svg",
     "static/media/btn-menu.svg": "/static/media/btn-menu.5770167afe7f76141c15aed03fccd3c3.svg",
     "static/media/minus.svg": "/static/media/minus.e3b917d36e79695e80c83b8e80266f70.svg",
-    "main.3c85e0d6.css.map": "/static/css/main.3c85e0d6.css.map",
-    "main.af842967.js.map": "/static/js/main.af842967.js.map"
+    "main.46cf9c48.css.map": "/static/css/main.46cf9c48.css.map",
+    "main.eba75893.js.map": "/static/js/main.eba75893.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c85e0d6.css",
-    "static/js/main.af842967.js"
+    "static/css/main.46cf9c48.css",
+    "static/js/main.eba75893.js"
   ]
 }

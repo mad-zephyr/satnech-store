@@ -36,16 +36,23 @@ const MainPage = () => {
         <Slider slides={sliders} />
         <MainCategory category={category} />
         <SectionName title={'Самые популярные'} favorite />
-        <ShopFront sliderOnMobile />
+        <ShopFront
+          sliderOnMobile
+          category={null}
+        />
       </Wrapper>
       <CategorySlider sliderOnMobile={true} />
       <Wrapper background="white" style={{}}>
         <SectionName btn title="Инсталяции" />
-        <ShopFront />
+        <ShopFront
+          category={'625555f5cba888079b7f4f62'}
+        />
       </Wrapper>
       <Wrapper>
         <SectionName btn title="Для ванной" />
-        <ShopFront />
+        <ShopFront
+          category={'625555f5cba888079b7f4f62'}
+        />
       </Wrapper>
       <TextBlock />
     </>

@@ -18,11 +18,23 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { getBrands } from 'app/store/brands'
 
-const ShopFront = ({ children, sliderOnMobile }) => {
-  const products = useSelector(getProducts())
-  const allBrands = useSelector(getBrands())
+const ShopFront = ({ children, sliderOnMobile, category }) => {
   const currentLang = 'ru'
   const [mobile, setMobile] = useState(false)
+  const products = useSelector(getProducts())
+  const [filteredProducts, setFilteredProducts] = useState([])
+  const allBrands = useSelector(getBrands())
+
+  useEffect(() => {
+    const updatedProducts = products?.filter(product => product.category === category)
+    if (!category) {
+      if (products) {
+        setFilteredProducts(products)
+      }
+    } else {
+      setFilteredProducts(updatedProducts)
+    }
+  }, [products])
 
   const handleChangeArrowOpacity = (swiper) => {
     if (swiper.progress === 0) {
@@ -56,7 +68,7 @@ const ShopFront = ({ children, sliderOnMobile }) => {
     checkIfMobile()
   }, [])
 
-  const slidersArr = products
+  const slidersArr = filteredProducts
     ?.filter(product => product.isShow)
     ?.map((product, index) => {
       const { images = [{ src: imageBlock }], actualPrice, oldPrice, brand, sku } = product
@@ -139,6 +151,7 @@ const ShopFront = ({ children, sliderOnMobile }) => {
 
 ShopFront.propTypes = {
   sliderOnMobile: PropTypes.bool,
+  category: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
